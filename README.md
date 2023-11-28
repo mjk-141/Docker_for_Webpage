@@ -21,10 +21,8 @@
 ● # 사용자 패스워드 : 123456<br/> 
 ● # 포트포워드 : 33306:3306
 # 설치가이드
-
-  1. 가상의 네트워크 설정(3개의 컨테이너를 묶어서 서로 데이터를 주고 받기 위함)
-
-docker network create Docker_Network_for_WebPage
+### 1. 가상의 네트워크 설정(3개의 컨테이너를 묶어서 서로 데이터를 주고 받기 위함)
+| docker network create Docker_Network_for_WebPage |
 
 
 1. 데이터베이스 컨테이너(이미지 : mjk141/webpage_for_db) 생성
