@@ -9,14 +9,14 @@
 ● 호스트의 8080번 포트와 컨테이너의 80번 포트로 포워딩(-p 8081:80)<br/> 
 ● HTML, CSS, JS 파일 저장
 ### 백엔드 컨테이너(이미지 : mjk141/webpage_for_server)
-● 호스트의 8081번 포트와 컨테이너의 80번 포트로 포워딩(AJAX 통신으로 통신)
-● DB 연결 및 DB테이블의 데이터를 가져올 PHP 파일 저장
+● 호스트의 8081번 포트와 컨테이너의 80번 포트로 포워딩(AJAX 통신으로 통신)<br/> 
+● DB 연결 및 DB테이블의 데이터를 가져올 PHP 파일 저장<br/> 
 ● # 포트포워드 : 8081:80
 ### 데이터베이스 컨테이너(이미지 : mysql:latest)
-● # 컨테이너 명 : mySQL_for_webpage
-● # 네트워크 : Docker_Network_for_WebPage
-● # root 패스워드 : 123456
-● # database : mySQL_for_webpage
-● # 사용자 계정 : manager
-● # 사용자 패스워드 : 123456
+● # 컨테이너 명 : mySQL_for_webpage<br/> 
+● # 네트워크 : Docker_Network_for_WebPage<br/> 
+● # root 패스워드 : 123456<br/> 
+● # database : mySQL_for_webpage<br/> 
+● # 사용자 계정 : manager<br/> 
+● # 사용자 패스워드 : 123456<br/> 
 ● # 포트포워드 : 33306:3306
