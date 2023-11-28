@@ -20,3 +20,50 @@
 ● # 사용자 계정 : manager<br/> 
 ● # 사용자 패스워드 : 123456<br/> 
 ● # 포트포워드 : 33306:3306
+# 설치가이드
+
+  1. 가상의 네트워크 설정(3개의 컨테이너를 묶어서 서로 데이터를 주고 받기 위함)
+
+docker network create Docker_Network_for_WebPage
+
+
+1. 데이터베이스 컨테이너(이미지 : mjk141/webpage_for_db) 생성
+● # 컨테이너 명 : mySQL_for_webpage
+● # 네트워크 : Docker_Network_for_WebPage
+● # root 패스워드 : 123456
+● # database : mySQL_for_webpage
+● # 사용자 계정 : manager
+
+docker run --name mySQL_for_webpage -dit -p 33306:3306 --net=Docker_Network_for_WebPage -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_DATABASE=mySQL_for_webpage -e MYSQL_USER=manager -e MYSQL_PASSWORD=123456 mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+
+
+2. 프론트엔드 컨테이너(이미지 : mjk141/webpage_for_html)를 생성
+● # 컨테이너 명 : myHtml_for_webPage 
+● # 네트워크 : Docker_Network_for_WebPage
+● # 포트포워드 : 8080:80
+
+docker run -d -p 8080:80 --name myHtml_for_webPage --net=Docker_Network_for_WebPage mjk141/webpage_for_html
+
+
+3. 백엔드 컨테이너(이미지 : mjk141/webpage_for_server) 생성
+● # 컨테이너 명 : myserver_for_webPage 
+● # 네트워크 : Docker_Network_for_WebPage
+● # 포트포워드 : 8081:80
+
+docker run -d -p 8081:80 --name myserver_for_webPage --net=Docker_Network_for_WebPage mjk141/webpage_for_server
+
+
+4. 만든 DB 서버에 백업해둔 SQL 문을 적용
+● DB에 로그인
+
+● 백업한 SQL문 적용
+
+
+● 테이블 생성확인
+
+5. 192.168.106.130:8080로 접속 시도
+● 접속 성공 시 웹페이지 확인
+
+6. 자격증 체크 Modal과 일정 확인 Modal 확인하여 DB 연동 및 서버 간접적 체크
+
+
