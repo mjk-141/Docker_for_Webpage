@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Website Reference Generator</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.column {
+			color: #000000;
+			font-size: 1em;
+		}
+
+		.control-group {
+			margin-bottom: 20px;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		td {
+			background-color: aquamarine;
+			padding: 8px;
+		}
+
+		button[type="submit"] {
+			font-size: 100%;
+			margin-left: 5%;
+		}
+	</style>
+</head>
+
+<body>
+	<button style="font-size: 200%; width:15%;" onclick="window.location.href = 'index.html';">home</button>
+	<div class="header">
+		<h3><var id="demo"></var> Website Page</h3>
+	</div>
+
+	<div class="column" style="background-color:#7289da; color: #f1f1f1; font-size: 2em;">
+		<div class="control-group">
+			<table>
+				<tr>
+					<td><label> Page Title:</label></td>
+					<td><input class="reqClass" id="pageTitle" type="text" name="Page" autocomplete="off"
+							style="height:50px; width:200px; font-size:15px;" placeholder="Page Title" required></td>
+				</tr>
+				<tr>
+					<td><label> URL/DOI:</label></td>
+					<td><input type="text" name="urlDoi" id="urlDoiValue" autocomplete="off"
+							style="height:50px; width:200px; font-size:15px;" placeholder="DOI/URL" required></td>
+				</tr>
+				<tr>
+					<td><label> Year Published:</label></td>
+					<td><input type="number" id="publishedYear" name="publishedYear" autocomplete="off"
+							style="height:50px; width:200px; font-size:15px;" placeholder="Year Published" required>
+					</td>
+				</tr>
+				<tr>
+					<td><label> Date Accessed:</label></td>
+					<td><input type="date" id="date" autocomplete="off"
+							style="height:50px; width:200px; font-size:20px;" name="dateAccessed"></td>
+				</tr>
+			</table>
+			<button type="submit" onclick="formatAction()">GO!</button>
+		</div>
+	</div>
+	<div class="footer"></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"> </script>
+
+<script>
+	let refLang = sessionStorage.getItem("answer");
+	document.getElementById("demo").innerHTML = refLang;
+
+	function formatAction() {
+		var classVar = document.getElementsByClassName('reqClass');
+		for (var i = 0; i < classVar.length; i++) {
+			var classValues = document.getElementsByClassName('reqClass')[i].value;
+			var classNames = document.getElementsByClassName('reqClass')[i].name;
+			if (!classValues) {
+				alert("Please enter a value for " + classNames);
+				break;
+			} else {
+				if (refLang == "Harvard") {
+					var dateEdit = dayjs(date.value).format('D MMMM YYYY');
+					var dateEdit2 = dayjs(publishedYear.value).format('YYYY');
+					var fullBib = "<i>" + pageTitle.value + "</i> (" + publishedYear.value + ") Available at: " +
+						urlDoiValue.value + " (Accessed: " + dateEdit + ").";
+					var textCitation = "(<i>" + pageTitle.value + "</i>, " + dateEdit2 + ").";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else if (refLang == "Vancouver") {
+					var dateEdit = dayjs(publishedYear.value).format('YYYY MMM D');
+					var dateEdit2 = dayjs(date.value).format('YYYY MMM D');
+					var fullBib = pageTitle.value + "[Internet]. " + dateEdit + "[cited " + dateEdit2 + "]; " +
+						"Available from: " + urlDoiValue.value;
+					var textCitation = "(" + pageTitle.value + ", " + publishedYear.value + ")";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else if (refLang == "APA") {
+					var dateEdit = dayjs(publishedYear.value).format('YYYY, MMM D');
+					var dateEdit2 = dayjs(publishedYear.value).format('YYYY');
+					var fullBib = "<i>" + pageTitle.value + "</i>. (" + dateEdit + ") " + urlDoiValue.value +
+						" (Accessed: " + dateEdit + ").";
+					var textCitation = "(<i>" + pageTitle.value + "</i>, " + dateEdit2 + ").";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else if (refLang == "MLA") {
+					var fullBib = '"' + pageTitle.value + '." ' + urlDoiValue.value + ". (Accessed: " + dateEdit + ").";
+					var textCitation = '(' + '"' + pageTitle.value + '" ' + ').';
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else {
+					alert("Go to the Home page and pick a language");
+				}
+			}
+		}
+	}
+</script>
+
+</html>

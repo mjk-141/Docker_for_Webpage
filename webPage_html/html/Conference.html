@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.column {
+			color: #000000;
+			font-size: 1em;
+		}
+
+		.control-group {
+			margin-bottom: 20px;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		td {
+			padding: 8px;
+		}
+
+		button[type="submit"] {
+			font-size: 200%;
+			margin-left: 5%;
+		}
+	</style>
+	<link rel="stylesheet" href="style.css">
+	<title>Conference Reference Generator</title>
+</head>
+
+
+<body>
+	<button style="font-size: 200%; width: 15%;" onclick="window.location.href = 'index.html';">home</button>
+	<div class="header">
+		<h3><var id="demo"></var> Conference Page</h3>
+	</div>
+
+	<div class="column">
+		<div class="control-group">
+			<table>
+				<tr style="background-color: aquamarine;">
+					<td><label>Conference Title:</label></td>
+					<td>
+						<input class="reqClass" id="conferenceTitle" type="text" name="Conference" autocomplete="off"
+							style="height: 50px; width: 200px; font-size: 15px;" placeholder="Conference Title"
+							required>
+					</td>
+				</tr>
+				<tr style="background-color: aquamarine;">
+					<td><label>Location:</label></td>
+					<td>
+						<input type="text" id="location" name="locationOfCon" autocomplete="off"
+							style="height: 50px; width: 200px; font-size: 30px;" placeholder="Location">
+					</td>
+				</tr>
+				<tr style="background-color: aquamarine;">
+					<td><label>Journal Name:</label></td>
+					<td>
+						<input type="text" id="journalTitle" name="JournalName" autocomplete="off"
+							style="height: 50px; width: 200px; font-size: 15px;" placeholder="Title of Journal">
+					</td>
+				</tr>
+				<tr style="background-color: aquamarine;">
+					<td><label>URL/DOI:</label></td>
+					<td>
+						<input type="text" name "urlDoi" id="urlDoiValue" autocomplete="off"
+							style="height: 50px; width: 200px; font-size: 15px;" placeholder="DOI/URL" required>
+					</td>
+				</tr>
+				<tr style="background-color: aquamarine;">
+					<td><label>Date Published:</label></td>
+					<td>
+						<input type="date" id="publishedYear" name="publishedYear" autocomplete="off"
+							style="height: 50px; width: 200px; font-size: 15px;" required>
+					</td>
+				</tr>
+				<tr style="background-color: aquamarine;">
+					<td><label>Date Accessed:</label></td>
+					<td>
+						<input type="date" id="date" autocomplete="off"
+							style="height: 50px; width: 200px; font-size: 20px;" name="dateAccessed">
+					</td>
+				</tr>
+			</table>
+			<button type="submit" onclick="formatAction()">GO!</button>
+		</div>
+	</div>
+
+	<div class="footer"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+	<script>
+		let refLang = sessionStorage.getItem("answer");
+		document.getElementById("demo").innerHTML = refLang;
+
+		function formatAction() {
+			var classVar = document.getElementsByClassName('reqClass');
+
+			for (var i = 0; i < classVar.length;) {
+				var classValues = document.getElementsByClassName('reqClass')[i].value;
+				var classNames = document.getElementsByClassName('reqClass')[i].name;
+				i++;
+				if (!classValues) {
+					alert("Please enter a value for " + classNames);
+					break;
+				} else {
+					var dateEdit = dayjs(publishedYear.value).format('YYYY');
+					var dateEdit2 = dayjs(date.value).format('D MMMM YYYY');
+					var dateEdit3 = dayjs(publishedYear.value).format('D MMMM YYYY');
+
+					if (refLang == "Harvard") {
+						var fullBib = "'" + conferenceTitle.value + ", " + location.value + "' (" + dateEdit + ") <i>" + journalTitle.value + "</i>. Available at: " + urlDoiValue.value + " (Accessed: " + dateEdit2 + ")";
+						var textCitation = "('" + conferenceTitle.value + "', " + dateEdit + ")";
+						sessionStorage.setItem("bibliographyRef", fullBib);
+						sessionStorage.setItem("textRef", textCitation);
+						window.location.href = "Results.html";
+					} else if (refLang == "APA") {
+						var fullBib = "<i>" + conferenceTitle.value + "</i>. [Proceedings]." + location.value + ", " + dateEdit2 + ".  <i>" + journalTitle.value + "</i>.";
+						var textCitation = "('" + conferenceTitle.value + "', " + dateEdit + ")";
+						sessionStorage.setItem("bibliographyRef", fullBib);
+						sessionStorage.setItem("textRef", textCitation);
+						window.location.href = "Results.html";
+					} else if (refLang == "MLA") {
+						var fullBib = "<i>" + conferenceTitle.value + "</i>. " + dateEdit3 + ", " + location.value + ".  <i>" + journalTitle.value + "</i>. " + dateEdit + ". Available at: " + urlDoiValue.value + " (Accessed: " + dateEdit2 + ")";
+						var textCitation = "(" + conferenceTitle.value + ")";
+						sessionStorage.setItem("bibliographyRef", fullBib);
+						sessionStorage.setItem("textRef", textCitation);
+						window.location.href = "Results.html";
+					} else {
+						alert("Go to the Home page and pick a language");
+					}
+				}
+			}
+		}
+	</script>
+
+</body>
+
+</html>

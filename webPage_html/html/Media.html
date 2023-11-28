@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Media Reference Generator</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.column {
+			color: #000000;
+			font-size: 1em;
+		}
+
+		.control-group {
+			margin-bottom: 20px;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		td {
+			background-color: aquamarine;
+			padding: 8px;
+		}
+
+		button[type="submit"] {
+			font-size: 200%;
+			margin-left: 5%;
+		}
+	</style>
+</head>
+
+<body>
+	<button style="font-size: 200%; width: 15%;" onclick="window.location.href = 'index.html';">home</button>
+	<div class="header">
+		<h3><var id="demo"></var> Media Page</h3>
+	</div>
+
+	<div class="column">
+		<table>
+			<tr>
+				<td><label>Creator First Name:</label></td>
+				<td><input type="text" id="firstName" name="firstName" class="reqClass" autocomplete="off"
+						style="height:50px; width:200px; font-size:20px;  margin: 5% 5% 5% 5%;" placeholder="First Name"
+						required></td>
+				<td><label>Creator Surname:</label></td>
+				<td><input type="text" id="lastName" name="Last Name" class="reqClass" required autocomplete="off"
+						style="height:50px; width:200px; font-size:20px; margin: 5% 5% 5% 5%;" placeholder="Surname">
+				</td>
+			</tr>
+			<tr>
+				<td><label>Series:</label></td>
+				<td><input type="text" id="seriesTitle" name="mediaName" autocomplete="off"
+						style="height:50px; width:200px; font-size:15px; margin: 5% 5% 5% 5%;"
+						placeholder="Title of Series"></td>
+				<td><label>Media Name:</label></td>
+				<td><input class="reqClass" id="mediaTitle" type="text" name="media" autocomplete="off"
+						style="height:50px; width:200px; font-size:15px; margin: 5% 5% 5% 5%;" placeholder="Media Title"
+						required></td>
+			</tr>
+			<tr>
+				<td><label>Episode Number (if needed):</label></td>
+				<td><input type="text" id="episodeNo" name="Episode" autocomplete="off"
+						style="height:50px; width:200px; font-size:30px; margin-left: 5%;" placeholder="Episode"></td>
+				<td><label>Publication Place:</label></td>
+				<td><input type="text" name="placeOfPub" id="pubPlace" autocomplete="off"
+						style="height:50px; width:200px; font-size:15px; margin: 5% 5% 5% 5%;"
+						placeholder="Place of Publication" required></td>
+			</tr>
+			<tr>
+				<td><label>Date Published:</label></td>
+				<td><input type="date" id="publishedYear" name="publishedYear" autocomplete="off"
+						style="height:50px; width:200px; font-size:15px; margin: 5% 5% 5% 5%;" required></td>
+			</tr>
+			<tr>
+				<td><label>Media Type:</label></td>
+				<td>
+					<input type="radio" style="background-color: #36393e;" autocomplete="off" id="mediaOption"
+						name="mediaOptions" value="CD"> <label for="mediaOption"
+						style="font-size: 40px; width: 100px;">CD</label>
+				</td>
+				<td>
+					<input type="radio" style="background-color: #36393e;" autocomplete="off" id="mediaOption2"
+						name="mediaOptions" value="DVD"> <label for="mediaOption2"
+						style="font-size: 40px; width: 100px;">DVD</label>
+				</td>
+				<td>
+					<input type="radio" style="background-color: #36393e;" autocomplete="off" id="mediaOption3"
+						name="mediaOptions" value="Newspaper"> <label for="mediaOption3"
+						style="font-size: 20px; width: 100px;">Newspaper or Article</label>
+				</td>
+				<td>
+					<input type="radio" style="background-color: #36393e;" autocomplete="off" id="mediaOption4"
+						name="mediaOptions" value="TVShow"> <label for="mediaOption4"
+						style="font-size: 20px; width: 100px;">TV Show</label>
+				</td>
+			</tr>
+
+		</table>
+		<button type="submit" style="font-size: 300%; margin-left: 5%;" onclick="formatAction()">GO!</button>
+	</div>
+
+	<div class="footer">
+	</div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+
+<script>
+
+	let refLang = sessionStorage.getItem("answer");
+	document.getElementById("demo").innerHTML = refLang;
+
+
+	function formatAction() {
+
+		var classVar = document.getElementsByClassName('reqClass');
+
+		for (var i = 0; i < classVar.length;) {
+			var classValues = document.getElementsByClassName('reqClass')[i].value;
+			var classNames = document.getElementsByClassName('reqClass')[i].name;
+			i++;
+			if (!classValues) {
+
+				alert("please enter a value for " + classNames);
+				break;
+			}
+			else {
+
+				var initialVal = firstName.value;
+				var initialValue = initialVal.charAt(0);
+				var dateEdit2 = dayjs(publishedYear.value).format('YYYY');
+
+				var mediaOptionChoice = document.querySelector('input[type="radio"][name="mediaOptions"]:checked').value;
+
+				if (mediaOptionChoice == "DVD") {
+					var mediaOptionValue = "DVD";
+				}
+				else if (mediaOptionChoice == "CD") {
+					var mediaOptionValue = "CD";
+				}
+				else if (mediaOptionChoice == "Newspaper") {
+					var mediaOptionValue = "";
+				}
+				else if (mediaOptionChoice == "TVShow") {
+					var mediaOptionValue = "Television";
+				}
+				else {
+					alert("Choose a Media Option.");
+					break;
+				}
+
+
+				if (refLang == "Harvard") {
+
+
+					var dateEdit = dayjs(publishedYear.value).format('D MMMM');
+
+					var fullBib = lastName.value + ", " + initialValue + ". <i>" + seriesTitle.value + "</i> " + ". (" + dateEdit2 + "). " + pubPlace.value + "." + dateEdit;
+					var textCitation = "(" + seriesTitle.value + ", " + dateEdit2 + ")";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+
+				}
+
+
+				else if (refLang == "Vancouver") {
+
+					var dateEdit = dayjs(publishedYear.value).format('YYYY MMM D');
+
+					var fullBib = seriesTitle.value + ". " + mediaTitle.value + " [" + mediaOptionValue + "]. " + pubPlace.value + "; " + dateEdit + ".";
+					var textCitation = "(" + seriesTitle.value + " " + dateEdit2 + ")";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+
+				}
+
+				else if (refLang == "APA") {
+					var dateEdit = dayjs(publishedYear.value).format('YYYY MMMM D');
+
+					var fullBib = lastName.value + ', ' + initialValue + '. ' + "(" + dateEdit + ")." + "<i>" + seriesTitle.value + '</i> [' + mediaOptionValue + ']. ' + pubPlace.value + '.';
+					var textCitation = "(" + lastName.value + ", " + dateEdit2 + ")";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+
+				}
+
+				else if (refLang == "MLA") {
+					var dateEdit = dayjs(publishedYear.value).format('D MMMM YYYY');
+
+					var fullBib = '"' + mediaTitle.value + '." <i>' + seriesTitle.value + '</i>, created by ' + firstName.value + ' ' + lastName.value + ', ' + episodeNo.value + ', ' + pubPlace.value + ', ' + dateEdit + '.';
+					var textCitation = '(' + '"' + seriesTitle.value + '"' + ')';
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+
+				}
+				else {
+					alert("Go to the Home page and pick a language")
+				}
+			}
+		}
+	}
+</script>
+
+
+
+
+
+</html>

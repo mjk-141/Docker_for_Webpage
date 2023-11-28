@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Agency - Start Bootstrap Theme</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<!-- 9.5장 onload 사용-->
+
+<body id="page-top" onload="show()">
+    <!-- 10.6장 Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/logos/logo01.png"
+                    alt="" /></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ml-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Site</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Performance</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
+                    <!-- 추가 : 아이콘 및 버튼 색 변경 -->
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onclick=change()><b>Color
+                                Change</b></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">필요 기능만 구현</div>
+            <div class="masthead-heading text-uppercase">Welcome to my warehouse!</div>
+            <!-- 변경 : 아이콘 및 버튼 색 변경 -->
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" id="tell" href="#services"><span>Tell Me
+                    More</span></a>
+        </div>
+    </header>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">자주 들리는 사이트</h2>
+                <h3 class="section-subheading text-muted">평소에도 자주 들리는 사이트입니다. 해당 icon 버튼을 누르면 해당 사이트로 이동합니다.</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <!-- 변경 : 아이콘 및 버튼 색 변경 -->
+                        <a class="btn-large" href="https://prod.danawa.com/list/?cate=112758">
+                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse" id="cart"></i>
+                        </a>
+                    </span>
+                    <h4 class="my-3">E-Commerce</h4>
+                    <p class="text-muted">최저가를 찾아주고 소개해주는 Danawa입니다.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <!-- 변경 : 아이콘 및 버튼 색 변경 -->
+                        <a class="btn-large" href="https://lib.gachon.ac.kr/">
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse" id="laptop"></i>
+                        </a>
+                    </span>
+                    <h4 class="my-3">Gachon Library</h4>
+                    <p class="text-muted">IEEE 등 다른 저널을 가천대 도서관을 통해서 접근합니다. 이를 통해 무료로 다른 저널의 PDF 파일을 열 수 있습니다.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <!-- 변경 : 아이콘 및 버튼 색 변경 -->
+                        <a class="btn-large" href="https://www.youtube.com/">
+                            <i class="fas fa-video fa-stack-1x fa-inverse" id="youtube"></i>
+                        </a>
+                    </span>
+                    <h4 class="my-3">Youtube</h4>
+                    <p class="text-muted">바로 Youtube로 접근할 수 있도록 합니다.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <!-- 변경 : 아이콘 및 버튼 색 변경 -->
+                        <a class="btn-large" href="https://cyber.gachon.ac.kr/">
+                            <i class="fas fa-video fa-stack-1x fa-inverse" id="cybercampus"></i>
+                        </a>
+                    </span>
+                    <h4 class="my-3">Gachon Cybercampus</h4>
+                    <p class="text-muted">가천대 사이버 캠퍼스로 이동합니다.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <!-- 변경 : 아이콘 및 버튼 색 변경 -->
+                        <a class="btn-large" href="https://www.gachon.ac.kr/kor/1158/subview.do">
+                            <i class="fas fa-hamburger fa-stack-1x fa-inverse" id="food"></i>
+                        </a>
+                    </span>
+                    <h4 class="my-3">식단표</h4>
+                    <p class="text-muted">가천대 식단표를 확인하는 사이트로 이동합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Grid-->
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">자주 애용하는 기능</h2>
+                <h3 class="section-subheading text-muted">지금까지 애용했고 추후에도 애용할 것 같은 기능들</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/01-thumbnail.jpg" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">대신 작성해줄게</div>
+                            <div class="portfolio-caption-subheading text-muted">APA 인용 방식</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/02-thumbnail.jpg" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">자격증 체크</div>
+                            <div class="portfolio-caption-subheading text-muted">보유하신 자격증 체크</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/03-thumbnail.jpg" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">혹시 까먹은게...</div>
+                            <div class="portfolio-caption-subheading text-muted">일정 확인 및 체크</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/04-thumbnail.jpg" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Music Playlist</div>
+                            <div class="portfolio-caption-subheading text-muted">Youtube 연동</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/portfolio/05-thumbnail.jpg" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">돈 계산 해볼까??</div>
+                            <div class="portfolio-caption-subheading text-muted">계산기 및 환율 계산</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team-->
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">제작한 사람</h2>
+                <h3 class="section-subheading text-muted">해당 페이지를 제작 및 기능 추가를 담당</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mx-auto text-center">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="assets/img/team/1.png" alt="" />
+                        <h4>Mjk-141</h4>
+                        <p class="text-muted">가천대학교 컴퓨터공학과 201935235 Mjk-141</p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/"><i
+                                class="fab fa-instagram"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.naver.com/"><i
+                                class="fab fa-naver-N"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="large text-muted">시작은 미약하였으나 끝은 창대하리라</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Clients-->
+    <div class="py-5">
+        <div class="container">
+            <!-- 9.4장 : onclick 사용 , 누르면 윈도우 창이 열린다. -->
+            <div class="row">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#"><img id="img" onclick="openwindow1(100)" class="img-fluid d-block mx-auto"
+                            src="assets/naver.png" alt="" width="400" height="360" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#"><img id="img" onclick="openwindow2(100)" class="img-fluid d-block mx-auto"
+                            src="assets/Daum.jpg" alt="" width="400" height="360" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#"><img id="img" onclick="openwindow3(100)" class="img-fluid d-block mx-auto"
+                            src="assets/google.jpg" alt="" width="400" height="360" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#"> <img id="img" onclick="openwindow4(100)" class="img-fluid d-block mx-auto"
+                            src="assets/gachon.jfif" alt="" width="400" height="360" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    <!--10.4장 웹페이지 프린트 추가, 아이콘 누르면 인쇄 다이얼이 열림-->
+                    <a class="btn btn-dark btn-social mx-2" href="#!" onclick="print()"><i class="fas fa-print"></i></a>
+                    <!--아이콘 누르면 실시간으로 시간을 알려주는 창이 나옴-->
+                    <a class="btn btn-dark btn-social mx-2" data-toggle="modal" href="#portfolioModal7"><i
+                            class="fas fa-clock"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-right">
+                    <a class="mr-3" href="#!">Privacy Policy</a>
+                    <a class="mr-3" href="#!">Terms of Use</a>
+                    <!--누르면 웹 브라우저의 정보가 출력-->
+                    <a class="mr-3" data-toggle="modal" href="#portfolioModal8">Information</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Portfolio Modals-->
+    <!-- Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <h2 class="text-uppercase">대신 작성해줄게요</h2>
+                                <p class="item-intro text-muted">참고 방식을 알려주세요</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column"
+                                style="background-color:#7289da; font-size: 40px; border: 2px solid #000; padding: 10px;">
+                                <h3 class="text-uppercase centered-title"
+                                    style="background-color:#ffffff; font-size: 20px;">어떤 방식으로
+                                    인용할건가요?</h3>
+                                <input type="radio" autocomplete="off" id="harvard" name="RefStyle" value="Harvard">
+                                <label for="harvard">Harvard</label><br>
+                                <input type="radio" autocomplete="off" id="vancouver" name="RefStyle" value="Vancouver">
+                                <label for "vancouver">Vancouver</label><br>
+                                <input type="radio" autocomplete="off" id="APA" name="RefStyle" value="APA">
+                                <label for="APA">APA</label> <br>
+                                <input type="radio" autocomplete="off" id="MLA" name="RefStyle" value="MLA">
+                                <label for="MLA">MLA</label>
+                            </div>
+                            <div class="column"
+                                style="background-color:#7289da; font-size: 200%; border: 2px solid #000; padding: 10px;">
+                                <h3 class="text-uppercase centered-title"
+                                    style="background-color:#ffffff; font-size: 20px;">어디에 올리실 건가요?</h3>
+                                <input type="radio" autocomplete="off" id="journal" name="RefStyle2" value="Journal">
+                                <label for="journal">Journal</label><br>
+                                <input type="radio" autocomplete="off" id="book" name="RefStyle2" value="Book">
+                                <label for="book">Book</label><br>
+                                <input type="radio" autocomplete="off" id="website" name="RefStyle2" value="Website">
+                                <label for="website">Website</label> <br>
+                                <input type="radio" autocomplete="off" id="media" name="RefStyle2" value="Media">
+                                <label for="media">Media</label> <br>
+                                <input type="radio" autocomplete="off" id="conference" name="RefStyle2"
+                                    value="Conference">
+                                <label for="conference">Conference Proceedings</label>
+                            </div>
+                        </div>
+                        <div class="column" style="text-align: center; width: 500%;">
+                            <button class="btn btn-primary" type="submit"
+                                style="font-size:20px; margin-top: 2cm;margin-bottom: 2cm;"
+                                onclick="displayRadioValue()">GO!</button>
+                        </div>
+                    </div>
+                    <button id="button_change" class="btn btn-primary" data-dismiss="modal" type="button">
+                        <i class="fas fa-times mr-1"></i>
+                        Close Project
+                    </button>
+                    <!--10.4장 웹페이지 프린트 추가, 버튼 누르면 인쇄 다이얼이 열림-->
+                    <button onclick="print()" class="btn btn-primary" data-dismiss="modal"
+                        type="button">print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <h2 class="text-uppercase">자격증이 많으신가요?</h2>
+                    <p class="item-intro text-muted">보유하신 자격증 및 추후 취득할 자격증 체크</p>
+                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                    <div class="row p-4">
+                        <div class="col-md-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- FORM TO ADD TASKS -->
+                                    <form id="certificate-form">
+                                        <div class="form-group">
+                                            <input type="text" id="certificate" placeholder="무슨일인가요?"
+                                                class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" id="date" placeholder="일정을 입력하세요" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="description" cols="30" rows="10" class="form-control"
+                                                placeholder="무슨 일이 있는지 기입하세요"></textarea>
+                                        </div>
+                                        <input type="hidden" id="taskId">
+                                        <button type="submit" class="btn btn-primary">대신
+                                            기억해드릴게요
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- TABLE  -->
+                        <div class="col-md-7">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>What certificate</td>
+                                        <td>When</td>
+                                        <td>Description</td>
+                                        <th>Done</th>
+                                    </tr>
+                                <tbody id="tasks"></tbody>
+                                </thead>
+                            </table>
+                        </div>
+                    </div><button id="button_change" class="btn btn-primary" data-dismiss="modal" type="button">
+                        <i class="fas fa-times mr-1"></i>
+                        Close Project
+                    </button>
+                    <!--10.4장 웹페이지 프린트 추가, 버튼 누르면 인쇄 다이얼이 열림-->
+                    <button onclick="print()" class="btn btn-primary" data-dismiss="modal"
+                        type="button">print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 3-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <h2 class="text-uppercase">혹시 까먹은게 있지 않나요?</h2>
+                    <p class="item-intro text-muted">일정 확인 및 체크 하세용</p>
+                    <div class="row p-4">
+                        <div class="col-md-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- FORM TO ADD TASKS -->
+                                    <form id="schedules-form">
+                                        <div class="form-group">
+                                            <input type="text" id="work" placeholder="일정 이름" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="timework" cols="30" rows="10" class="form-control"
+                                                placeholder="언제까지인가요?"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="explanation" cols="30" rows="10" class="form-control"
+                                                placeholder="자세한 설명 요망"></textarea>
+                                        </div>
+                                        <input type="hidden" id="workId">
+                                        <button type="submit" class="btn btn-primary">일정 입력
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TABLE  -->
+                        <div class="col-md-7">
+                            <table class="table table-bordered table-sm">
+                                <thead>
+                                    <tr>
+                                        <td>Id</td>
+                                        <td>Work</td>
+                                        <td>Date</td>
+                                        <td>Description</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="schedule"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <button id="button_change" class="btn btn-primary" data-dismiss="modal" type="button">
+                        <i class="fas fa-times mr-1"></i>
+                        Close Project
+                    </button>
+                    <!--10.4장 웹페이지 프린트 추가, 버튼 누르면 인쇄 다이얼이 열림-->
+                    <button onclick="print()" class="btn btn-primary" data-dismiss="modal"
+                        type="button">print</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 4-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">좀 쉬었다 가세요~</h2>
+                                <p class="item-intro text-muted">원하는 노래 감상하세요</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                                <div id="player"></div>
+                                <button id="button_change" class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                                <!--10.4장 웹페이지 프린트 추가, 버튼 누르면 인쇄 다이얼이 열림-->
+                                <button onclick="print()" class="btn btn-primary" data-dismiss="modal"
+                                    type="button">print</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 5-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">환율을 계산해줍니다</h2>
+                                <p class="item-intro text-muted">실시간으로 환율을 업데이트 가능</p>
+                                <div class="container">
+                                    <h1 class="ercword">Exchagne Rate Calculator</h1>
+                                    <p>Choose the currency and the amounts to get the exchange rate</p>
+                                    <div class="currency">
+                                        <select class="selectcurrency" name="currency-one" id="currencyOne">
+                                            <option value="AED">AED</option>
+                                            <option value="ARS">ARS</option>
+                                            <option value="AUD">AUD</option>
+                                            <option value="BGN">BGN</option>
+                                            <option value="BRL">BRL</option>
+                                            <option value="BSD">BSD</option>
+                                            <option value="CAD">CAD</option>
+                                            <option value="CHF">CHF</option>
+                                            <option value="CLP">CLP</option>
+                                            <option value="CNY">CNY</option>
+                                            <option value="COP">COP</option>
+                                            <option value="CZK">CZK</option>
+                                            <option value="DKK">DKK</option>
+                                            <option value="DOP">DOP</option>
+                                            <option value="EGP">EGP</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="FJD">FJD</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="GTQ">GTQ</option>
+                                            <option value="HKD">HKD</option>
+                                            <option value="HRK">HRK</option>
+                                            <option value="HUF">HUF</option>
+                                            <option value="IDR">IDR</option>
+                                            <option value="ILS">ILS</option>
+                                            <option value="INR">INR</option>
+                                            <option value="ISK">ISK</option>
+                                            <option value="JPY">JPY</option>
+                                            <option value="KRW">KRW</option>
+                                            <option value="KZT">KZT</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="MYR">MYR</option>
+                                            <option value="NOK">NOK</option>
+                                            <option value="NZD">NZD</option>
+                                            <option value="PAB">PAB</option>
+                                            <option value="PEN">PEN</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="PKR">PKR</option>
+                                            <option value="PLN">PLN</option>
+                                            <option value="PYG">PYG</option>
+                                            <option value="RON">RON</option>
+                                            <option value="RUB">RUB</option>
+                                            <option value="SAR">SAR</option>
+                                            <option value="SEK">SEK</option>
+                                            <option value="SGD">SGD</option>
+                                            <option value="THB">THB</option>
+                                            <option value="TRY">TRY</option>
+                                            <option value="TWD">TWD</option>
+                                            <option value="UAH">UAH</option>
+                                            <option value="USD" selected>USD</option>
+                                            <option value="UYU">UYU</option>
+                                            <option value="VND">VND</option>
+                                            <option value="ZAR">ZAR</option>
+                                        </select>
+                                        <input type="number" id="amount-one" value="1">
+                                    </div>
+                                    <div class="swap-rate-container">
+                                        <button id="swap" class="btn">Swap</button>
+                                        <div id="rate" class="rate"></div>
+                                    </div>
+                                    <div class="currency">
+                                        <select class="selectcurrency" name="currency-two" id="currencyTwo">
+                                            <option value="AED">AED</option>
+                                            <option value="ARS">ARS</option>
+                                            <option value="AUD">AUD</option>
+                                            <option value="BGN">BGN</option>
+                                            <option value="BRL">BRL</option>
+                                            <option value="BSD">BSD</option>c
+                                            <option value="CAD">CAD</option>
+                                            <option value="CHF">CHF</option>
+                                            <option value="CLP">CLP</option>
+                                            <option value="CNY">CNY</option>
+                                            <option value="COP">COP</option>
+                                            <option value="CZK">CZK</option>
+                                            <option value="DKK">DKK</option>
+                                            <option value="DOP">DOP</option>
+                                            <option value="EGP">EGP</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="FJD">FJD</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="GTQ">GTQ</option>
+                                            <option value="HKD">HKD</option>
+                                            <option value="HRK">HRK</option>
+                                            <option value="HUF">HUF</option>
+                                            <option value="IDR">IDR</option>
+                                            <option value="ILS">ILS</option>
+                                            <option value="INR">INR</option>
+                                            <option value="ISK">ISK</option>
+                                            <option value="JPY">JPY</option>
+                                            <option value="KRW" selected>KRW</option>
+                                            <option value="KZT">KZT</option>
+                                            <option value="MXN">MXN</option>
+                                            <option value="MYR">MYR</option>
+                                            <option value="NOK">NOK</option>
+                                            <option value="NZD">NZD</option>
+                                            <option value="PAB">PAB</option>
+                                            <option value="PEN">PEN</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="PKR">PKR</option>
+                                            <option value="PLN">PLN</option>
+                                            <option value="PYG">PYG</option>
+                                            <option value="RON">RON</option>
+                                            <option value="RUB">RUB</option>
+                                            <option value="SAR">SAR</option>
+                                            <option value="SEK">SEK</option>
+                                            <option value="SGD">SGD</option>
+                                            <option value="THB">THB</option>
+                                            <option value="TRY">TRY</option>
+                                            <option value="TWD">TWD</option>
+                                            <option value="UAH">UAH</option>
+                                            <option value="USD">USD</option>
+                                            <option value="UYU">UYU</option>
+                                            <option value="VND">VND</option>
+                                            <option value="ZAR">ZAR</option>
+                                        </select>
+                                        <input type="number" id="amount-two" value="1">
+
+                                    </div>
+                                    <button id="button_change" class="btn btn-primary" data-dismiss="modal"
+                                        type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+                                    <!--10.4장 웹페이지 프린트 추가, 버튼 누르면 인쇄 다이얼이 열림-->
+                                    <button onclick="print()" class="btn btn-primary" data-dismiss="modal"
+                                        type="button">print</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <a href="test_page.php">
+        <div class="portfolio-modal modal fade" id="write" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg"
+                            alt="Close modal" />
+                    </div>
+                    <div class="container">
+                        <div style="text-align: right; padding: 20px 0 10px 0; position: relative;">
+                            <form id="notice_form" name="notice_form" method="post" action="test_page2.php">
+                                <input type="hidden" value="" name="mode" id="mode">
+                                <select id="select">
+                                    <option>카테고리</option>
+                                    <option>카테고리1</option>
+                                    <option>카테고리2</option>
+                                </select>
+                                <div class="post-title">
+                                    <textarea class="textarea_tit" name="title" id="title"
+                                        placeholder="제목을 입력하세요"></textarea>
+                                </div>
+                                <textarea class="textarea_cont" name="content" id="content"></textarea>
+                                <div class="content-aside">
+                                    <div class="wrap_btn">
+                                        <input class="btn" type="button" onclick="location.href='test_page.php'"
+                                            value="취소">
+                                        <input class="btn btn-default" type="button" onclick="submit_func('write');"
+                                            value="완료">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <!-- 타임 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Current TIME</h2>
+                                <p class="item-intro text-muted">현재 시간을 보여줍니다.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/time.jfif" alt="" width="800" />
+                                <!-- 7.4장 실시간 시계 표현, 11장 캔버스 에니메이션 사용-->
+                                <canvas id="myCanvas"></canvas>
+                                <!--7.4장 실시간 시간을 문자열로 표현, innerHTML 사용-->
+                                <p id="timer"></p>
+                                <button id="button_change" class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 정보 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" />
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Information</h2>
+                                <p class="item-intro text-muted">웹사이트 정보를 보여줍니다.</p>
+                                <!-- innerHTML 사용, 정보 표현-->
+                                <p id="information" style=" text-align: left"></p>
+                                <button id="button_change" class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Frontend Logic -->
+    <script src="js/openpop.js"></script>
+    <script src="js/add.js"></script>
+    <script src="js/connect_db.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/currency.js"></script>
+    <script src="js/youTubeApi.js"></script>
+    <script src="js/checkbox.js"></script>
+</body>
+
+</html>

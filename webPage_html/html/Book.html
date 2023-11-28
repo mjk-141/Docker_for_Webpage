@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css">
+	<title>Book Reference Generator</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+		}
+
+		.column {
+			color: #000000;
+			font-size: 1em;
+		}
+
+		.control-group {
+			margin-bottom: 20px;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		td {
+			background-color: aquamarine;
+			padding: 8px;
+		}
+
+		button[type="submit"] {
+			font-size: 200%;
+			margin-left: 5%;
+		}
+	</style>
+</head>
+
+<body>
+	<button style="font-size: 200%; width:15%;" onclick="window.location.href = 'index.html';">home</button>
+	<div class="header">
+		<h3><var id="demo"></var> Book Page</h3>
+	</div>
+
+	<div class="column">
+		<p id="demo"></p>
+		<div class="control-group">
+			<table>
+				<tr>
+					<td><label> Surname:</label></td>
+					<td><input type="text" id="lastName" name="Last Name" class="reqClass" required autocomplete="off"
+							style="height:50px; width:200px; font-size:20px;" placeholder="Surname"></td>
+				</tr>
+				<tr>
+					<td><label> First Name:</label></td>
+					<td><input type="text" id="firstName" name="firstName" class="reqClass" autocomplete="off"
+							style="height:50px; width:200px; font-size:20px;" placeholder="First Name" required></td>
+				</tr>
+				<tr>
+					<td><label> Edition:</label></td>
+					<td><input class="reqClass" id="editionNo" type="text" name="edition" autocomplete="off"
+							style="height:50px; width:200px; font-size:15px;" placeholder="Edition" required></td>
+				</tr>
+				<tr>
+					<td><label> Page Number(s):</label></td>
+					<td><input type="text" id="pageNo" name="Page numbers" autocomplete="off"
+							style="height:50px; width:200px; font-size:30px;" placeholder="Page Numbers"></td>
+				</tr>
+				<tr>
+					<td><label> Book Name:</label></td>
+					<td><input type="text" id="bookTitle" name="bookName" autocomplete="off"
+							style="height:50px; width:200px; font-size:15px;" placeholder="Title of book"></td>
+				</tr>
+				<tr>
+					<td><label> Place of Publication:</label></td>
+					<td><input type="text" name="placeOfPub" id="pubPlace" autocomplete="off"
+							style="height:50px; width:200px; font-size:15px;" placeholder="DOI/URL" required></td>
+				</tr>
+				<tr>
+					<td><label> Year Published:</label></td>
+					<td><input type="text" id="publishedYear" name="publishedYear" autocomplete="off"
+							style="height:50px; width:200px; font-size:15px;" placeholder="Year Published" required>
+					</td>
+				</tr>
+				<tr>
+					<td><label> Date Accessed:</label></td>
+					<td><input type="date" id="date" autocomplete="off"
+							style="height:50px; width:200px; font-size:20px;" name="dateAccessed"></td>
+				</tr>
+			</table>
+			<button type="submit" onclick="formatAction()">GO!</button>
+		</div>
+	</div>
+	<div class="footer"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+<script>
+	let refLang = sessionStorage.getItem("answer");
+	document.getElementById("demo").innerHTML = refLang;
+
+	function formatAction() {
+		var classVar = document.getElementsByClassName('reqClass');
+		for (var i = 0; i < classVar.length; i++) {
+			var classValues = document.getElementsByClassName('reqClass')[i].value;
+			var classNames = document.getElementsByClassName('reqClass')[i].name;
+			if (!classValues) {
+				alert("Please enter a value for " + classNames);
+				break;
+			} else {
+				var initialVal = firstName.value;
+				var initialValue = initialVal.charAt(0);
+				if (refLang == "Harvard") {
+					var dateEdit = dayjs(date.value).format('D MMMM YYYY');
+					var fullBib = lastName.value + ", " + initialValue + ". (" + publishedYear.value + ") <i>" +
+						bookTitle.value + "</i>. " + editionNo.value + ". " + pubPlace.value + ".";
+					var textCitation = "(" + publishedYear.value + " p." + pageNo.value + ")";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else if (refLang == "Vancouver") {
+					var dateEdit = dayjs(publishedYear.value).format('YYYY MMM');
+					var dateEdit2 = dayjs(date.value).format('YYYY MMM D');
+					var fullBib = lastName.value + " " + initialValue + '. ' + bookTitle.value + ". " +
+						editionNo.value + "th ed. " + pubPlace.value + "; " + dateEdit + ". " + pageNo.value + " p.";
+					var textCitation = "(" + lastName.value + ", pp" + pageNo.value + ")";
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else if (refLang == "APA") {
+					var fullBib = lastName.value + ', ' + initialValue + '. ' + "(" + publishedYear.value +
+						")." + "<i>" + bookTitle.value + '</i>(' + editionNo.value + 'th ed.).' + pubPlace.value + '.';
+					var textCitation = '(' + publishedYear.value + ', p.' + pageNo.value + ')';
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else if (refLang == "MLA") {
+					var fullBib = lastName.value + ', ' + firstName.value + '. ' + '<i>' + bookTitle.value +
+						'</i>. ' + editionNo.value + ', ' + publishedYear.value + ', pp.' + pubPlace.value + ', ' + pageNo.value + '.';
+					var textCitation = '(' + lastName.value + " " + pageNo.value + ')';
+					sessionStorage.setItem("bibliographyRef", fullBib);
+					sessionStorage.setItem("textRef", textCitation);
+					window.location.href = "Results.html";
+				} else {
+					alert("Go to the Home page and pick a language");
+				}
+			}
+		}
+	}
+</script>
+
+</html>

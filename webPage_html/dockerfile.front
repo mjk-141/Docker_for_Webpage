@@ -1,0 +1,8 @@
+FROM php:8.0-apache
+
+# 필요한 모든 확장을 활성화
+RUN apt-get update && \
+    apt-get install -y zlib1g-dev libpng-dev && \
+    docker-php-ext-install mysqli pdo pdo_mysql gd iconv opcache
+
+COPY ./html /var/www/html
