@@ -134,7 +134,7 @@ $(document).ready(function () {
 
 // schedules.js 내용 시작
 const hostName = window.location.hostname;
-const hostNameServerUrl = 'http://' + hostName + ':8081/';
+const hostNameServerUrl = '/task/';
 
 $(document).ready(function () {
     // Global Settings
