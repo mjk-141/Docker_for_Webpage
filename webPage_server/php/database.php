@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 $mysql_host = "mySQL_for_WebPage";
 $mysql_user = "manager";
 $mysql_password = "123456";
